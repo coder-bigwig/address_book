@@ -1,0 +1,24 @@
+-- 创建数据库
+CREATE DATABASE IF NOT EXISTS ContactManager;
+
+-- 使用数据库
+USE ContactManager;
+
+-- 创建联系人表
+CREATE TABLE IF NOT EXISTS contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    email VARCHAR(100),
+    address VARCHAR(255)
+);
+
+-- 插入一些初始联系人数据
+INSERT INTO contacts (name, phone, email, address) VALUES
+('张三', '13800138000', 'zhangsan@example.com', '北京市海淀区'),
+('李四', '13900139000', 'lisi@example.com', '上海市浦东新区'),
+('王五', '13700137000', 'wangwu@example.com', '广州市天河区'),
+('赵六', '13600136000', 'zhaoliu@example.com', '深圳市南山区'),
+('孙七', '13500135000', 'sunqi@example.com', '成都市武侯区');
+
+ALTER TABLE contacts ADD COLUMN is_blacklisted BOOLEAN DEFAULT FALSE;
